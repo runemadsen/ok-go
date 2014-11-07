@@ -1,0 +1,13 @@
+{
+  "name": "golang-rails-template",
+  "devDependencies" : {
+    "gulp": "^3.8.6",
+    "gulp-coffee": "^2.1.1",
+    "gulp-include": "^1.1.0",
+    "gulp-rev" : "^2.0.1",
+    "gulp-if" : "^1.2.5",
+    "gulp-sass": "^0.7.2",
+    "gulp-uglify": "^1.0.1",
+    "gulp-minify-css" : "^0.3.11"
+  }
+}

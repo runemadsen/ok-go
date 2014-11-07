@@ -1,4 +1,4 @@
 golang-rails-template
 =====================
 
-A template for golang web applications inspired by Ruby on Rails
+An opiniated template for golang web applications inspired by Ruby on Rails. But soooooooo much faster.
