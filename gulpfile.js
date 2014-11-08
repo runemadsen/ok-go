@@ -8,54 +8,38 @@ var uglify = require("gulp-uglify");
 var minify = require("gulp-minify-css");
 var shell = require('gulp-shell');
 
-//var merge = require("merge-stream");
-//var del = require("del");
-//var exec = require("child_process").exec;
-//var concat = require("gulp-concat");
-//var rename = require("gulp-rename");
-//var uglify = require("gulp-uglify");
-
-//var open = require("gulp-open");
-//var connect = require("gulp-connect");
-//
-//var directoryMap = require("gulp-directory-map");
-//var liquify = require('gulp-liquify');
-//var through = require('through2');
-//var _ = require("underscore");
-
-//
-//gulp.task("assets", function() {
-//  return gulp.src("./scss/oreilly.scss").pipe(sass()).pipe(gulp.dest("./public/css"));
-//});
-//
-//gulp.task("serve", ["docs"], function() {
-//  return connect.server({
-//    port: 8001,
-//    root: 'public'
-//  });
-//});
-
 var assets = [
   'app/assets/javascripts/application.coffee', 
   'app/assets/stylesheets/application.scss'
 ]
 
-// Compilation for development
+// Development tasks
+// ----------------------------------------------------------- 
+
 gulp.task("assets:compile", function() {
   gulp.src(assets)
     .pipe(include())
-    .pipe(gulpif('*.coffee', coffee()))
+    .pipe(gulpif('*.coffee', coffee({bare: true})))
     .pipe(gulpif('*.scss', sass()))
-    .pipe(gulp.dest("public/assets"))
+    .pipe(gulp.dest("public/assets")) // to make sure rev only includes filename
+    .pipe(rev())
+    .pipe(gulp.dest("public/assets")) // file with digest
+    .pipe(rev.manifest({path: 'manifest.json'}))
+    .pipe(gulp.dest("public/assets")) // manifest.json
 });
 
-// Watch and compile for development
+gulp.task("server", ["assets:compile"], function() {
+  gulp.src('').pipe(shell('gin app.go'));
+  gulp.watch(['app/assets/**/*.coffee', 'app/assets/**/*.scss'], ["assets:compile"]);
+});
 
-// Compilation for production
+// Production tasks
+// ----------------------------------------------------------- 
+
 gulp.task("assets:precompile", function() {
   gulp.src(assets)
     .pipe(include())
-    .pipe(gulpif('*.coffee', coffee()))
+    .pipe(gulpif('*.coffee', coffee({bare: true})))
     .pipe(gulpif('*.scss', sass()))
     .pipe(gulpif('*.css', minify()))
     .pipe(gulpif('*.js', uglify()))
@@ -66,4 +50,8 @@ gulp.task("assets:precompile", function() {
     .pipe(gulp.dest("public/assets")) // manifest.json
 });
 
-gulp.task("server", shell.task('gin app.go'));
+
+
+
+
+  
