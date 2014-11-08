@@ -6,6 +6,7 @@ var gulpif = require('gulp-if');
 var sass = require("gulp-sass");
 var uglify = require("gulp-uglify");
 var minify = require("gulp-minify-css");
+var shell = require('gulp-shell');
 
 //var merge = require("merge-stream");
 //var del = require("del");
@@ -48,6 +49,8 @@ gulp.task("assets:compile", function() {
     .pipe(gulp.dest("public/assets"))
 });
 
+// Watch and compile for development
+
 // Compilation for production
 gulp.task("assets:precompile", function() {
   gulp.src(assets)
@@ -62,3 +65,5 @@ gulp.task("assets:precompile", function() {
     .pipe(rev.manifest({path: 'manifest.json'}))
     .pipe(gulp.dest("public/assets")) // manifest.json
 });
+
+gulp.task("server", shell.task('gin app.go'));
