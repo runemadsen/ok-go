@@ -1,3 +1,4 @@
 public/assets
 node_modules
 gin-bin
+.DS_Store
