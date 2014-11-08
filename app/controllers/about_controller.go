@@ -1,5 +1,9 @@
 package controllers
 
-func AboutIndex() string {
-  return "this is about"
+import (
+  "github.com/martini-contrib/render"
+)
+
+func AboutIndex(r render.Render) {
+  r.HTML(200, "about/index", "")
 }

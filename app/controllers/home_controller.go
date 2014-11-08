@@ -1,5 +1,9 @@
 package controllers
 
-func HomeIndex() string {
-  return "this is home"
+import (
+  "github.com/martini-contrib/render"
+)
+
+func HomeIndex(r render.Render) {
+  r.HTML(200, "home/index", "")
 }
