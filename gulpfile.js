@@ -21,16 +21,16 @@ gulp.task("assets:compile", function() {
     .pipe(include())
     .pipe(gulpif('*.coffee', coffee({bare: true})))
     .pipe(gulpif('*.scss', sass()))
-    .pipe(gulp.dest("public/assets")) // to make sure rev only includes filename
-    .pipe(rev())
-    .pipe(gulp.dest("public/assets")) // file with digest
-    .pipe(rev.manifest({path: 'manifest.json'}))
-    .pipe(gulp.dest("public/assets")) // manifest.json
+    .pipe(gulp.dest("public/assets"))
 });
 
 gulp.task("server", ["assets:compile"], function() {
-  gulp.src('').pipe(shell('gin app.go'));
+  gulp.src('').pipe(shell('gin main.go'));
   gulp.watch(['app/assets/**/*.coffee', 'app/assets/**/*.scss'], ["assets:compile"]);
+});
+
+gulp.task("test", ["assets:compile"], function() {
+  gulp.src('').pipe(shell('go test'));
 });
 
 // Production tasks

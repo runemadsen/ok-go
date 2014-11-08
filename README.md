@@ -21,13 +21,8 @@ Production use
 TODO
 ----
 
-- [x] Asset compilation
-- [x] Controllers
-- [ ] Views / Layouts
-- [ ] Layout stylesheet and javascript tags with digests in prod
+- [ ] Specs
+- [ ] Migrations with Goose
+- [ ] DB with gorm
 - [ ] config.json file if it exists
-
-
-Things to talk about:
-
-- no classes. We call stuff `HomeIndex` and not `index`
+- [ ] Small CRUD examples
