@@ -17,6 +17,7 @@ TODO
 ----
 
 - [x] Asset compilation
+- [x] Controllers
 - [ ] Views / Layouts
 - [ ] Layout stylesheet and javascript tags with digests in prod
 - [ ] config.json file if it exists
