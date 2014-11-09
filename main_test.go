@@ -1,4 +1,4 @@
-package test_test
+package main_test
 
 import (
   "github.com/go-martini/martini"
@@ -8,6 +8,7 @@ import (
   "net/http"
   "net/http/httptest"
   "testing"
+  . "golang-rails-template/spec"
 )
 
 var (
