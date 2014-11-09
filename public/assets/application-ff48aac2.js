@@ -1,0 +1,1 @@
+var About,Home;Home=function(){function o(){console.log("You are now on the home page")}return o}(),About=function(){function o(){console.log("You are now on the about page")}return o}();

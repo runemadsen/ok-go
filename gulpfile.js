@@ -34,7 +34,7 @@ gulp.task("server", ["assets:compile"], function() {
 });
 
 gulp.task("test", ["assets:compile"], function() {
-  gulp.src('').pipe(shell('go test'));
+  gulp.src('').pipe(shell('ginkgo -r'));
 });
 
 // Production tasks
@@ -54,7 +54,7 @@ gulp.task("assets:precompile", function() {
     .pipe(gulp.dest("public/assets")) // manifest.json
 });
 
-gulp.task("test", ["assets:precompilecompile"], function() {
+gulp.task("deploy:prepare", ["assets:precompile"], function() {
   gulp.src('').pipe(shell('godep save'));
 });
 
