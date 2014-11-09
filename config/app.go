@@ -10,7 +10,7 @@ import (
 
 func Root() string {
   _, file, _, _ := runtime.Caller(0)
-  return filepath.Dir(file)
+  return filepath.Join(filepath.Dir(file), "../")
 }
 
 func CreateApplication() *martini.ClassicMartini {
@@ -20,7 +20,7 @@ func CreateApplication() *martini.ClassicMartini {
   // Add contrib renderer. See options in docs.
   // https://github.com/martini-contrib/render
   m.Use(render.Renderer(render.Options{
-    Directory: Root() + "/../app/views",
+    Directory: filepath.Join(Root(), "app/views"),
     Layout: "layouts/layout",
     Extensions: []string{".html"},
     Funcs: []template.FuncMap{AssetHelpers()},
