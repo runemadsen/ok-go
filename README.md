@@ -26,8 +26,7 @@ You need to run a few commands before deploying (compile assets for production, 
 TODO
 ----
 
-- [ ] Fix test
-- [ ] Set /assets max-age to loooong time
+- [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
 - [ ] Model specs
 - [ ] Migrations with Goose
 - [ ] DB with gorm
