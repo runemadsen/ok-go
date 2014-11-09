@@ -7,10 +7,10 @@ import (
 
 var _ = Describe("Home", func() {
 
-  It("renders the home page", func() {    
-    Request("GET", "/")
+  It("renders the about page", func() {    
+    Request("GET", "/about")
     Expect(response.Code).To(Equal(200))
-    Expect(response.Body).To(ContainSubstring("This is the home view"))
+    Expect(response.Body).To(ContainSubstring("This is the about view"))
   })
 
 })
