@@ -4,21 +4,11 @@ import (
   "html/template"
   "github.com/go-martini/martini"
   "github.com/martini-contrib/render"
-  "runtime"
-  "path/filepath"
-  "fmt"
 )
-
-func Root() string {
-  _, file, _, _ := runtime.Caller(0)
-  return filepath.Join(filepath.Dir(file), "../")
-}
 
 func CreateApplication() *martini.ClassicMartini {
 
   m := martini.Classic()
-
-  fmt.Println("Setting root path to " + Root())
 
   // Add contrib renderer. See options in docs.
   // https://github.com/martini-contrib/render

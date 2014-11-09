@@ -26,10 +26,10 @@ You need to run a few commands before deploying (compile assets for production, 
 TODO
 ----
 
-- [ ] Set asset lifetime to forever
-- [ ] What about assets n stuff?
-- [ ] Run on Heroku
+- [ ] Fix test
+- [ ] Set /assets max-age to loooong time
 - [ ] Model specs
 - [ ] Migrations with Goose
 - [ ] DB with gorm
+- [ ] Gulp won't work on heroku.
 - [ ] Small CRUD examples
