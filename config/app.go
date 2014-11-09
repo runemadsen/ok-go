@@ -6,6 +6,7 @@ import (
   "github.com/martini-contrib/render"
   "runtime"
   "path/filepath"
+  "fmt"
 )
 
 func Root() string {
@@ -16,6 +17,8 @@ func Root() string {
 func CreateApplication() *martini.ClassicMartini {
 
   m := martini.Classic()
+
+  fmt.Println("Setting root path to " + Root())
 
   // Add contrib renderer. See options in docs.
   // https://github.com/martini-contrib/render
