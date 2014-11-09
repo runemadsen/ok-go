@@ -21,11 +21,12 @@ Deploying to Heroku
 2. `heroku config:set MARTINI_ENV=production`
 3. `git push heroku master`
 
-Whenever you change/add a package, you need to run `godep save`.
+You need to run a few commands before deploying (compile assets for production, update godep dependencies). Do this by running `gulp deploy:prepare`.
 
 TODO
 ----
 
+- [ ] Set asset lifetime to forever
 - [ ] What about assets n stuff?
 - [ ] Run on Heroku
 - [ ] Model specs
