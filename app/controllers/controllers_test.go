@@ -1,4 +1,4 @@
-package golang_rails_template_test
+package controllers_test
 
 import (
   . "github.com/onsi/ginkgo"
