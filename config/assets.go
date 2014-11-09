@@ -6,7 +6,6 @@ import (
   "io/ioutil"
   "os"
   "fmt"
-  "path/filepath"
 )
 
 func AssetHelpers() template.FuncMap {
@@ -15,7 +14,7 @@ func AssetHelpers() template.FuncMap {
   if os.Getenv("MARTINI_ENV") == "production" {
 
     var manifest map[string]interface{}
-    file, e := ioutil.ReadFile(filepath.Join(Root(), "public/assets/manifest.json"))
+    file, e := ioutil.ReadFile("../public/assets/manifest.json")
     if e != nil {
       fmt.Printf("File error: %v\n", e)
     }

@@ -22,6 +22,10 @@ gulp.task("assets:compile", function() {
     .pipe(gulpif('*.coffee', coffee({bare: true})))
     .pipe(gulpif('*.scss', sass()))
     .pipe(gulp.dest("public/assets"))
+    .pipe(rev())
+    .pipe(gulp.dest("public/assets")) // file with digest
+    .pipe(rev.manifest({path: 'manifest.json'}))
+    .pipe(gulp.dest("public/assets")) // manifest.json
 });
 
 gulp.task("server", ["assets:compile"], function() {
