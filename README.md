@@ -19,9 +19,11 @@ Deploying to Heroku
 
 1. `heroku create -b https://github.com/kr/heroku-buildpack-go.git`
 2. `heroku config:set MARTINI_ENV=production`
-3. `git push heroku master`
+3. `gulp deploy:prepare`
+4. `git add .; git commit -m 'adding compiled assets and dependencies'`
+5. `git push heroku master`
 
-You need to run a few commands before deploying (compile assets for production, update godep dependencies). Do this by running `gulp deploy:prepare`.
+The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets for production, as well as update th godep dependencies.
 
 TODO
 ----
