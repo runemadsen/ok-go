@@ -23,7 +23,7 @@ func CreateApplication() *martini.ClassicMartini {
   // Add contrib renderer. See options in docs.
   // https://github.com/martini-contrib/render
   m.Use(render.Renderer(render.Options{
-    Directory: filepath.Join(Root(), "app/views"),
+    Directory: "app/views",
     Layout: "layouts/layout",
     Extensions: []string{".html"},
     Funcs: []template.FuncMap{AssetHelpers()},
