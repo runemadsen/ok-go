@@ -1,4 +1,4 @@
-package main_test
+package controllers_test
 
 import (
   "github.com/go-martini/martini"
@@ -8,7 +8,6 @@ import (
   "net/http"
   "net/http/httptest"
   "testing"
-  . "golang-rails-template/spec"
 )
 
 var (
@@ -22,7 +21,7 @@ func TestTest(t *testing.T) {
 }
 
 var _ = BeforeSuite(func() {
-  m = config.CreateApplication()
+  m = config.CreateApplication("../..")
 })
 
 func Request(method string, route string) {
