@@ -2,7 +2,7 @@ package controllers_test
 
 import (
   "github.com/go-martini/martini"
-  config "golang-rails-template/config"
+  "../../config"
   . "github.com/onsi/ginkgo"
   . "github.com/onsi/gomega"
   "net/http"
