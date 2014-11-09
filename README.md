@@ -9,20 +9,26 @@ Development environment
 -----------------------
 
 1. Have a working go environment
-2. Download this repo to your `GOPATH/src` folder
-2. Install all packages, including `github.com/codegangsta/gin`
-3. Run `gulp server` and start developing stuff
+2. Clone this repo to your `GOPATH/src` folder
+2. Install all packages (`go get`), and also `github.com/codegangsta/gin` and `gulp.js`
+3. Run `gulp server`
+4. Open `localhost:3000`
 
-Production use
+Deploying to Heroku
 --------------
 
-1. Set `MARTINI_ENV` to `production`
+1. `heroku create -b https://github.com/kr/heroku-buildpack-go.git`
+2. `heroku config:set MARTINI_ENV=production`
+3. `git push heroku master`
+
+Whenever you change/add a package, you need to run `godep save`.
 
 TODO
 ----
 
-- [ ] Specs
+- [ ] What about assets n stuff?
+- [ ] Run on Heroku
+- [ ] Model specs
 - [ ] Migrations with Goose
 - [ ] DB with gorm
-- [ ] config.json file if it exists
 - [ ] Small CRUD examples
