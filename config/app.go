@@ -15,8 +15,6 @@ func CreateApplication(basePath string) *martini.ClassicMartini {
 
   m := martini.Classic()
 
-  // Add contrib renderer. See options in docs.
-  // https://github.com/martini-contrib/render
   m.Use(render.Renderer(render.Options{
     Directory: filepath.Join(basePath, "app/views"),
     Layout: "layouts/layout",
@@ -24,10 +22,7 @@ func CreateApplication(basePath string) *martini.ClassicMartini {
     Funcs: []template.FuncMap{AssetHelpers(basePath)},
   }))
 
-  // Call the initializers
   Initialize(m)
-
-  // Call the routes
   Routes(m)
 
   return m
