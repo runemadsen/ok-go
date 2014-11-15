@@ -1,8 +1,8 @@
-package controllers_test
+package routes_test
 
 import (
-  "github.com/go-martini/martini"
-  config "golang-rails-template/config"
+  "github.com/runemadsen/ok-go/config"
+  "github.com/runemadsen/ok-go/routes"
   . "github.com/onsi/ginkgo"
   . "github.com/onsi/gomega"
   "net/http"
@@ -11,7 +11,7 @@ import (
 )
 
 var (
-  m *martini.ClassicMartini
+  app *config.App
   response *httptest.ResponseRecorder
 )
 
@@ -21,11 +21,12 @@ func TestTest(t *testing.T) {
 }
 
 var _ = BeforeSuite(func() {
-  m = config.CreateApplication("../..")
+  app = config.NewApp("../..")
+  routes.Setup(app)
 })
 
 func Request(method string, route string) {
   request, _ := http.NewRequest(method, route, nil)
   response = httptest.NewRecorder()
-  m.ServeHTTP(response, request)
+  app.Negroni.ServeHTTP(response, request)
 }

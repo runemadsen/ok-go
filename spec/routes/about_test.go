@@ -1,4 +1,4 @@
-package controllers_test
+package routes_test
 
 import (
   . "github.com/onsi/ginkgo"

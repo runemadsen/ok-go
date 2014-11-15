@@ -5,6 +5,7 @@ import (
   "github.com/gorilla/mux"
   "github.com/unrolled/render"
   "html/template"
+  "path/filepath"
 )
 
 type App struct {
@@ -18,6 +19,7 @@ func NewApp(root string) *App {
   negroni := negroni.Classic()
   router := mux.NewRouter()
   render := render.New(render.Options{
+    Directory: filepath.Join(root, "templates"),
     Layout: "layouts/layout",
     Extensions: []string{".html"},
     Funcs: []template.FuncMap{AssetHelpers(root)},
