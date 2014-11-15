@@ -1,5 +1,7 @@
-golang-rails-template
-=====================
+Ok Go(lang) Web Application Template
+====================================
+
+![Ok Go](http://i.vimeocdn.com/video/38089409_640.jpg)
 
 An opiniated template for golang web applications inspired by Ruby on Rails. But soooooooo much faster.
 
