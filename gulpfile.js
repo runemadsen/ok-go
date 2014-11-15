@@ -57,9 +57,3 @@ gulp.task("assets:precompile", function() {
 gulp.task("deploy:prepare", ["assets:precompile"], function() {
   gulp.src('').pipe(shell('godep save'));
 });
-
-
-
-
-
-  

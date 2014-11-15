@@ -1,10 +1,12 @@
 package main
 
 import (
-  config "golang-rails-template/config"
+  "github.com/runemadsen/ok-go/config"
+  "github.com/runemadsen/ok-go/routes"
 )
 
 func main() {
-  m := config.CreateApplication(".")
-  m.Run()
+  app := config.NewApp(".")
+  routes.Setup(app)
+  app.Negroni.Run(":3000")
 }

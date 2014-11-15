@@ -32,6 +32,7 @@ The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets
 TODO
 ----
 
+- [ ] Use Negroni
 - [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
 - [ ] Model specs
 - [ ] Migrations with Goose
