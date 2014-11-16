@@ -12,7 +12,7 @@ import(
 func AssetHelpers(root string) template.FuncMap {
 
   // Return digested asset paths in production
-  if os.Getenv("MARTINI_ENV") == "production" {
+  if os.Getenv("GO_ENV") == "production" {
 
     var manifest map[string]interface{}
     file, e := ioutil.ReadFile(filepath.Join(root, "public/assets/manifest.json"))

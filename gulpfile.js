@@ -13,7 +13,18 @@ var assets = [
   'app/assets/stylesheets/application.scss'
 ]
 
-// Development tasks
+// ENV
+// -----------------------------------------------------------
+
+gulp.task('env', function () {
+  env({ file: ".env" });
+});
+
+gulp.task('env:test', function () {
+  env({ file: ".env.test" });
+});
+
+// Development
 // ----------------------------------------------------------- 
 
 gulp.task("assets:compile", function() {
@@ -29,7 +40,7 @@ gulp.task("assets:compile", function() {
 });
 
 gulp.task("server", ["assets:compile"], function() {
-  gulp.src('').pipe(shell('gin main.go'));
+  gulp.src('').pipe(shell('godotenv gin main.go'));
   gulp.watch(['app/assets/**/*.coffee', 'app/assets/**/*.scss'], ["assets:compile"]);
 });
 
@@ -37,7 +48,7 @@ gulp.task("test", ["assets:compile"], function() {
   gulp.src('').pipe(shell('ginkgo -r'));
 });
 
-// Production tasks
+// Production
 // ----------------------------------------------------------- 
 
 gulp.task("assets:precompile", function() {
@@ -56,4 +67,11 @@ gulp.task("assets:precompile", function() {
 
 gulp.task("deploy:prepare", ["assets:precompile"], function() {
   gulp.src('').pipe(shell('godep save'));
+});
+
+// Database
+// ----------------------------------------------------------- 
+
+gulp.task("db:create", ["env"], function() {
+  gulp.src('').pipe(shell('createdb ' + process.env.DATABASE_URL));
 });
