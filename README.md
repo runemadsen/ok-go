@@ -1,14 +1,14 @@
-Ok Go(lang) Web Application Template
-====================================
+Ok Go Web Template
+===================
 
 ![Ok Go](http://i.vimeocdn.com/video/38089409_640.jpg)
 
-An opiniated template for golang web applications inspired by Ruby on Rails. But soooooooo much faster.
+This is a Go web application I created while moving from Ruby to Go. It has many of the defaults you have come to know from Ruby on Rails, and has some very default boilerplate code to help you get started writing web applications in Go.
 
 Read more about this on my blog: LINK HERE!!!
 
-Development environment
------------------------
+Setting up a development environment
+------------------------------------
 
 1. Have a working go environment and a running Postgres DB on `5432`
 2. Clone this repo to your `GOPATH/src` folder
@@ -28,10 +28,6 @@ Deploying to Heroku
 4. `git add .; git commit -m 'adding compiled assets and dependencies'`
 5. `git push heroku master`
 
-You need to migrate the DB also:
-
-1. `heroku run goose -env production up`
-
 The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets for production, as well as update th godep dependencies.
 
 Keep in mind
@@ -43,8 +39,8 @@ Keep in mind
 TODO
 ----
 
-- [ ] Set up model
-- [ ] Model specs
-- [ ] Small CRUD example
+- [ ] Style the posts
+- [ ] Write route spec for posts route
+- [ ] Write model spec for post
 - [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
 - [ ] Assets n'stuff when deploying?
