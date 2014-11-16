@@ -4,6 +4,7 @@ import (
   "github.com/codegangsta/negroni"
   "github.com/gorilla/mux"
   "github.com/unrolled/render"
+  "github.com/jinzhu/gorm"
   "html/template"
   "path/filepath"
 )
@@ -12,6 +13,7 @@ type App struct {
   Negroni *negroni.Negroni
   Router *mux.Router
   Render *render.Render
+  DB *gorm.DB
 }
 
 func NewApp(root string) *App {
@@ -24,8 +26,9 @@ func NewApp(root string) *App {
     Extensions: []string{".html"},
     Funcs: []template.FuncMap{AssetHelpers(root)},
   })
+  db := NewDB()
 
   negroni.UseHandler(router)
 
-  return &App{negroni, router, render}
+  return &App{negroni, router, render, db}
 }

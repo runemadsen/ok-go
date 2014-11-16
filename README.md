@@ -31,13 +31,16 @@ You need to migrate the DB also:
 
 The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets for production, as well as update th godep dependencies.
 
+Not in this
+-----------
+
+Only auto-migrations. Not real migrations.
+
 TODO
 ----
 
-- [ ] Use Negroni
-- [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
+- [ ] Set up model
 - [ ] Model specs
-- [ ] Migrations with Goose
-- [ ] DB with gorm
-- [ ] Gulp won't work on heroku.
-- [ ] Small CRUD examples
+- [ ] Small CRUD example
+- [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
+- [ ] Assets n'stuff when deploying?
