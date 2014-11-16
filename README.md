@@ -39,6 +39,7 @@ Keep in mind
 TODO
 ----
 
+- [ ] Use `pat` instead of `gorilla.mux`
 - [ ] Style the posts
 - [ ] Write route spec for posts route
 - [ ] Write model spec for post
