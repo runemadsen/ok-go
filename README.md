@@ -34,10 +34,11 @@ You need to migrate the DB also:
 
 The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets for production, as well as update th godep dependencies.
 
-Not in this
------------
+Keep in mind
+------------
 
-Only auto-migrations. Not real migrations.
+- Only auto-migrations. Not real migrations.
+- Doesn't restart when you edit `.html` files
 
 TODO
 ----

@@ -1,0 +1,8 @@
+<h1>Posts</h1>
+
+{{ range . }}
+  <div class="post">
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Body }}</p>
+  </div>
+{{ end }}

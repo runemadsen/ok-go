@@ -2,4 +2,3 @@
 # https://github.com/wiledal/gulp-include
 
 #= require home.coffee
-#= require about.coffee
