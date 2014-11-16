@@ -23,7 +23,7 @@ Deploying to Heroku
 --------------
 
 1. `heroku create -b https://github.com/kr/heroku-buildpack-go.git`
-2. `heroku config:set MARTINI_ENV=production`
+2. `heroku config:set GO_ENV=production`
 3. `gulp deploy:prepare`
 4. `git add .; git commit -m 'adding compiled assets and dependencies'`
 5. `git push heroku master`
