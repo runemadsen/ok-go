@@ -12,10 +12,12 @@ Development environment
 
 1. Have a working go environment and a running Postgres DB on `5432`
 2. Clone this repo to your `GOPATH/src` folder
-2. Install all packages (`go get`), and also `github.com/codegangsta/gin`, `go get github.com/joho/godotenv/cmd/godotenv` and `gulp.js`
-3. Create the development and test DB's `gulp db:create` and `gulp db:test:create`
+2. Install all packages (`go get`), and also `github.com/codegangsta/gin` and `gulp.js`
+3. Create the development and test DB's with the Postgres `createdb` command
 3. Run `gulp server`
 4. Open `localhost:3000`
+
+You probably want to remove the `.env` files from being checked into the repo, but I left them in for reference.
 
 Deploying to Heroku
 --------------

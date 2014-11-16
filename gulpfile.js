@@ -7,22 +7,12 @@ var sass = require("gulp-sass");
 var uglify = require("gulp-uglify");
 var minify = require("gulp-minify-css");
 var shell = require('gulp-shell');
+var dotenv = require('dotenv');
 
 var assets = [
   'app/assets/javascripts/application.coffee', 
   'app/assets/stylesheets/application.scss'
 ]
-
-// ENV
-// -----------------------------------------------------------
-
-gulp.task('env', function () {
-  env({ file: ".env" });
-});
-
-gulp.task('env:test', function () {
-  env({ file: ".env.test" });
-});
 
 // Development
 // ----------------------------------------------------------- 
@@ -40,7 +30,7 @@ gulp.task("assets:compile", function() {
 });
 
 gulp.task("server", ["assets:compile"], function() {
-  gulp.src('').pipe(shell('godotenv gin main.go'));
+  gulp.src('').pipe(shell('gin main.go'));
   gulp.watch(['app/assets/**/*.coffee', 'app/assets/**/*.scss'], ["assets:compile"]);
 });
 
@@ -72,6 +62,8 @@ gulp.task("deploy:prepare", ["assets:precompile"], function() {
 // Database
 // ----------------------------------------------------------- 
 
-gulp.task("db:create", ["env"], function() {
-  gulp.src('').pipe(shell('createdb ' + process.env.DATABASE_URL));
-});
+//gulp.task("db:create", function() {
+//  //process.env.NODE_ENV = "test" // will make it look for .env.test
+//  dotenv.load();
+//  gulp.src('').pipe(shell('createdb ' + process.env.DATABASE_URL));
+//});

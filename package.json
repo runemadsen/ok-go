@@ -10,6 +10,6 @@
     "gulp-uglify": "^1.0.1",
     "gulp-minify-css" : "^0.3.11",
     "gulp-shell" : "^0.2.10",
-    "gulp-env" : "^0.2.0"
+    "dotenv" : "^0.4.0"
   }
 }

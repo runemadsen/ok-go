@@ -1,1 +1,1 @@
-web: golang-rails-template
+web: ok-go
