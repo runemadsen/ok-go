@@ -3,7 +3,7 @@ Ok Go Web Template
 
 ![Ok Go](http://i.vimeocdn.com/video/38089409_640.jpg)
 
-This is a Go web application I created while moving from Ruby to Go. It has many of the defaults you have come to know from Ruby on Rails, and has some very default boilerplate code to help you get started writing web applications in Go.
+This is a Go web application I created while moving from Ruby to Go. It has many of the defaults you have come to know from Ruby on Rails, as long as some helpful boilerplate code to help you get started writing web applications in Go. The `.env` files are also checked into the repo for reference.
 
 Read more about this on my blog: LINK HERE!!!
 
