@@ -39,6 +39,8 @@ Keep in mind
 TODO
 ----
 
+- [ ] Add middleware example (for assets)
 - [ ] Write route spec for posts route
 - [ ] Write model spec for post
 - [ ] Style the posts
+- [ ] Test on heroku from clean slate

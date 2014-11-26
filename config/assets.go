@@ -7,8 +7,46 @@ import(
   "io/ioutil"
   "os"
   "fmt"
+  "net/http"
+  "strings"
 )
 
+// Middleware to add Cache-Control headers to /assets
+type AssetHeaders struct {
+}
+
+func NewAssetHeaders() *AssetHeaders {
+  return &AssetHeaders{}
+}
+
+func (s *AssetHeaders) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+  
+  // Ignore if not production
+  if os.Getenv("GO_ENV") != "production" {
+    next(rw, r)
+    return
+  }
+
+  // Ignore all but GET and HEAD
+  if r.Method != "GET" && r.Method != "HEAD" {
+    next(rw, r)
+    return
+  }
+
+  // Ignore everything not in /assets
+  path := r.URL.Path
+  if !strings.HasPrefix(path, "/assets") {
+    next(rw, r)
+    return
+  }
+
+  // Set asset caching to one year 
+  rw.Header().Set("Cache-Control", "public, max-age=31536000")
+  next(rw, r)
+  
+}
+
+// Asset Path Helpers
 func AssetHelpers(root string) template.FuncMap {
 
   // Return digested asset paths in production

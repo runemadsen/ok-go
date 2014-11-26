@@ -7,6 +7,7 @@ import (
   "github.com/jinzhu/gorm"
   "html/template"
   "path/filepath"
+  "net/http"
 )
 
 type App struct {
@@ -18,9 +19,9 @@ type App struct {
 
 func NewApp(root string) *App {
 
-  negroni := negroni.Classic()
-  router := mux.NewRouter()
-  render := render.New(render.Options{
+  ne := negroni.New()
+  ro := mux.NewRouter()
+  re := render.New(render.Options{
     Directory: filepath.Join(root, "templates"),
     Layout: "layouts/layout",
     Extensions: []string{".html"},
@@ -28,7 +29,11 @@ func NewApp(root string) *App {
   })
   db := NewDB()
 
-  negroni.UseHandler(router)
+  ne.Use(negroni.NewRecovery())
+  ne.Use(negroni.NewLogger())
+  ne.Use(NewAssetHeaders())
+  ne.Use(negroni.NewStatic(http.Dir("public")))
+  ne.UseHandler(ro)
 
-  return &App{negroni, router, render, db}
+  return &App{ne, ro, re, db}
 }

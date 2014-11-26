@@ -3,7 +3,6 @@ package config
 import(
   "github.com/jinzhu/gorm"
   _ "github.com/lib/pq"
-  "github.com/runemadsen/ok-go/models"
   "os"
   "fmt"
 )
@@ -13,6 +12,5 @@ func NewDB() *gorm.DB {
   if err != nil {
     fmt.Printf("DB connection error: %v\n", err)
   }
-  runMigrations(&db)
   return &db
 }
