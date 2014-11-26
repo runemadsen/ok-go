@@ -34,7 +34,7 @@ All of the folders have `README` files to describe their purpose.
 This guide assumes that you have a working Go environment, and Postgres running on port `5432`.
 
 1. Create your dev and test databases. `createdb okgo_dev; createdb okgo_test`
-2. `git clone` this repo to your `GOPATH/src` folder.
+2. Clone this repo to your `GOPATH/src` folder. `git clone git@github.com:runemadsen/ok-go.git github.com/runemadsen/ok-go`
 3. Create a `.env` file and a `.env.test` file in the new folder root. This will be the place to put environment specific variables. You only need one for now: `DATABASE_URL=postgres://MYUSER@localhost:5432/okgo_ENVIRONMENT?sslmode=disable`
 4. Install all imported packages with `go get`, and a few extra command-line requirements:
     - `go get -u github.com/codegangsta/gin`
