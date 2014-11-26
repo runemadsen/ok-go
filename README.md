@@ -9,8 +9,9 @@ A Golang web application template with most of the stuff you've come to enjoy fr
 
 The following features are a part of the template. You will probably end up using only a selected handful of them for your specific projects.
 
+- **Middleware** support with [Negroni](https://github.com/codegangsta/negroni). The template has [a single middleware handler](https://github.com/runemadsen/ok-go/blob/master/config/assets.go#L14-L47) to serve as inspiration.
 - **Routing** with [Gorilla Mux](https://github.com/gorilla/mux). You should easily be able to replace this with your favority Golang routing library.
-- Middleware and static asset support with [Negroni](https://github.com/codegangsta/negroni)
+
 - Asset pipeline using [Gulp](http://gulpjs.com/). Generates digested asset paths, `manifest.json`, and ships Golang `asset_path` helpers.
 - Database ORM support with [Gorm](https://github.com/jinzhu/gorm)
 - Database migrations using [Gomigrate](https://github.com/DavidHuie/gomigrate) and [Gofer](https://github.com/chuckpreslar/gofer)
