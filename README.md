@@ -3,7 +3,9 @@ Ok Go Web Template
 
 ![Ok Go](http://i.vimeocdn.com/video/38089409_640.jpg)
 
-This is a Go web application I created while moving from Ruby to Go. It has many of the defaults you have come to know from Ruby on Rails, as long as some helpful boilerplate code to help you get started writing web applications in Go. The `.env` files are also checked into the repo for reference.
+A Golang web application template with most of the stuff you've come to enjoy in Ruby on Rails.
+
+The `.env` files are also checked into the repo for reference.
 
 Read more about this on my blog: LINK HERE!!!
 
@@ -22,15 +24,14 @@ ADD MIGRATE
 You probably want to remove the `.env` files from being checked into the repo, but I left them in for reference.
 
 Deploying to Heroku
---------------
+-------------------
 
 1. `heroku create -b https://github.com/kr/heroku-buildpack-go.git`
 2. `heroku config:set GO_ENV=production`
-3. `gulp deploy:prepare`
-4. `git add .; git commit -m 'adding compiled assets and dependencies'`
-5. `git push heroku master`
-
-The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets for production, as well as update th godep dependencies.
+3. `godep save`
+4. `gulp assets:precompile`
+5. `git add .; git commit -m 'adding compiled assets and dependencies'`
+6. `git push heroku master`
 
 Keep in mind
 ------------
@@ -40,6 +41,5 @@ Keep in mind
 TODO
 ----
 
-- [ ] Write model spec for post
 - [ ] Test on heroku from clean slate
 - [ ] Comment all of the code

@@ -1,3 +1,5 @@
 node_modules
 gin-bin
 .DS_Store
+.env.test
+.env
