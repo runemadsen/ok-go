@@ -17,7 +17,7 @@ func PostsNew(w http.ResponseWriter, req *http.Request) {
 }
 
 func PostsCreate(w http.ResponseWriter, req *http.Request) {
-  
+
   // Create a new empty Post struct
   post := new(models.Post)
 
