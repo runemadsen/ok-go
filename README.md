@@ -3,7 +3,7 @@ Ok Go Web Template
 
 ![Ok Go](http://i.vimeocdn.com/video/38089409_640.jpg)
 
-A Golang web application template with most of the stuff you've come to enjoy from Ruby on Rails. For more information, [read the blog post](LINK HEEEERE).Pull requests are more than encouraged!
+A Golang web application template with most of the stuff you've come to enjoy from Ruby on Rails. For more information of why I built this, [read the blog post](LINK HEEEERE). Pull requests are more than encouraged!
 
 ### Features
 
