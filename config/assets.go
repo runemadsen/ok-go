@@ -11,7 +11,9 @@ import(
   "strings"
 )
 
-// Middleware to add Cache-Control headers to /assets
+// The AssetHeaders struct is used to set Cache-Control headers to all GET and HEAD
+// requests to /assets in production. Because these assets have digested names, we
+// can set the cache time really high, and use this app as origin for a CDN.
 type AssetHeaders struct {
 }
 
@@ -46,7 +48,11 @@ func (s *AssetHeaders) ServeHTTP(rw http.ResponseWriter, r *http.Request, next h
   
 }
 
-// Asset Path Helpers
+// These helper functions are passed to the Go templates.
+// You can add more easily by adding more functions to the FuncMap.
+// The asset_path function reads from the manifest.json file to return
+// the path to the digested assets in production or non-digested assets in
+// development.
 func AssetHelpers(root string) template.FuncMap {
 
   // Return digested asset paths in production

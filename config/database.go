@@ -7,6 +7,8 @@ import(
   "fmt"
 )
 
+// Return a new gorm instance with a connection to the DB as specified
+// in the OS environment.
 func NewDB() *gorm.DB {
   db, err := gorm.Open("postgres", os.Getenv("DATABASE_URL"))
   
