@@ -25,8 +25,11 @@ The following features are a part of the template. You will probably end up usin
 
 - **Testing** with [Ginkgo](http://onsi.github.io/ginkgo/) and [Gomega](http://onsi.github.io/gomega/). Golang prefers the tests to live alongside the actual files, and will automatically ignore files named `*_test.go` during compilation. This template has both simple [route tests](https://github.com/runemadsen/ok-go/blob/master/routes/posts_test.go) and [model tests](https://github.com/runemadsen/ok-go/blob/master/models/post_test.go).
 
-
 ### Getting Started
+
+All of the folders have `README` files to describe their purpose.
+
+### Development
 
 This guide assumes that you have a working Go environment, and Postgres running on port `5432`.
 
@@ -36,11 +39,9 @@ This guide assumes that you have a working Go environment, and Postgres running 
 4. Install all imported packages with `go get`, and a few extra command-line requirements:
     - `go get -u github.com/codegangsta/gin`
     - `go get -u github.com/chuckpreslar/gofer/gofer`
-    - `sudo npm install -g gulp`
+    - `sudo npm install -g gulp && npm install`
 
 That's it. If you start using this template for your own application, you might want to rename the `runemadsen/ok-go` packages to your own repository name.
-
-### Development
 
 To run the development server, run `gulp server` and open `localhost:3000` in your browser. Gin will recompile the app code on any changes to `.go` files, but does currently not support watching `.html` template files. Gulp will recompile the assets on any changes.
 

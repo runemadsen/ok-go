@@ -7,8 +7,12 @@ import(
 )
 
 func PostsIndex(w http.ResponseWriter, req *http.Request) {
+  
+  // Find all posts in the DB
   posts := []models.Post{}
   App.DB.Find(&posts)
+
+  // Pass them to the templates for rendering
   App.Render.HTML(w, 200, "posts/index", posts)
 }
 

@@ -1,5 +1,9 @@
 package routes
 
+// This file is used to setup the general route tests. It created a new application
+// with a DB connection, and resets the DB before every test runs. It also loads
+// the contents of the .env.test file into the OS environment.
+
 import (
   "github.com/runemadsen/ok-go/config"
   . "github.com/onsi/ginkgo"
