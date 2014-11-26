@@ -19,6 +19,8 @@ type App struct {
 
 func NewApp(root string) *App {
 
+  CheckEnv()
+
   ne := negroni.New()
   ro := mux.NewRouter()
   re := render.New(render.Options{

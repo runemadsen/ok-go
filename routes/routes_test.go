@@ -2,9 +2,9 @@ package routes
 
 import (
   "github.com/runemadsen/ok-go/config"
-  "github.com/runemadsen/ok-go/routes"
   . "github.com/onsi/ginkgo"
   . "github.com/onsi/gomega"
+  "github.com/joho/godotenv"
   "net/http"
   "net/http/httptest"
   "testing"
@@ -21,8 +21,9 @@ func TestTest(t *testing.T) {
 }
 
 var _ = BeforeSuite(func() {
-  app = config.NewApp("../..")
-  routes.Setup(app)
+  e := godotenv.Load("../.env.test")
+  app = config.NewApp("../.")
+  Setup(app)
 })
 
 func Request(method string, route string) {

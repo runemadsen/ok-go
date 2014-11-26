@@ -10,6 +10,8 @@ Read more about this on my blog: LINK HERE!!!
 Setting up a development environment
 ------------------------------------
 
+ADD MIGRATE
+
 1. Have a working go environment and a running Postgres DB on `5432`
 2. Clone this repo to your `GOPATH/src` folder
 2. Install all packages (`go get`), and also `github.com/codegangsta/gin` and `gulp.js`
@@ -33,13 +35,11 @@ The `gulp deploy:prepare` task runs a few tasks to compile and minify the assets
 Keep in mind
 ------------
 
-- Only auto-migrations. Not real migrations.
 - Doesn't restart when you edit `.html` files
 
 TODO
 ----
 
-- [ ] Add middleware example (for assets)
 - [ ] Write route spec for posts route
 - [ ] Write model spec for post
 - [ ] Style the posts

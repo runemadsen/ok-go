@@ -8,7 +8,6 @@ import (
   "database/sql"
   "errors"
   "os"
-  "fmt"
 )
 
 func SetupEnv(arguments []string) error {
@@ -81,8 +80,3 @@ var DBRollback = gofer.Register(gofer.Task{
     return nil
   },
 })
-
-
-// DB CREATE
-
-// DB DESTROY
