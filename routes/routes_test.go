@@ -21,7 +21,7 @@ func TestTest(t *testing.T) {
 }
 
 var _ = BeforeSuite(func() {
-  e := godotenv.Load("../.env.test")
+  godotenv.Load("../.env.test")
   app = config.NewApp("../.")
   Setup(app)
 })

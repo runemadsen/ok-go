@@ -7,7 +7,6 @@ import(
 )
 
 func PostsIndex(w http.ResponseWriter, req *http.Request) {
-  
   posts := []models.Post{}
   App.DB.Find(&posts)
   App.Render.HTML(w, 200, "posts/index", posts)
