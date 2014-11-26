@@ -9,7 +9,7 @@ A Golang web application template with most of the stuff you've come to enjoy fr
 
 The following features are a part of the template. You will probably end up using only a selected handful of them for your specific projects.
 
-- **Middleware** support with [Negroni](https://github.com/codegangsta/negroni). The template has [a single custom middleware handler](https://github.com/runemadsen/ok-go/blob/master/config/assets.go#L14-L47) to serve as inspiration, but [more can be added](https://github.com/runemadsen/ok-go/blob/master/config/app.go#L34-L38) easily if needed.
+- **Middleware** support with [Negroni](https://github.com/codegangsta/negroni). The template has [a single custom middleware handler](https://github.com/runemadsen/ok-go/blob/master/config/assets.go#L14-L49) to serve as inspiration, but [more can be added](https://github.com/runemadsen/ok-go/blob/master/config/app.go#L46-L51) easily if needed.
 
 - **Routing** with [Gorilla Mux](https://github.com/gorilla/mux). You can replace this with your favorite Golang routing library if needed. This is your `controllers` folder in Rails.
 
@@ -23,7 +23,7 @@ The following features are a part of the template. You will probably end up usin
 
 - **Configuration** is stored in the OS environment, with support for development (`.env`) and test (`.env.test`) environments with [Godotenv](https://github.com/joho/godotenv).
 
-- **Testing** with [Ginkgo](http://onsi.github.io/ginkgo/) and [Gomega](http://onsi.github.io/gomega/). Golang prefers the tests to live alongside the actual files, and will automatically ignore files named `*_test.go` during compilation. This template has both simple [route tests](https://github.com/runemadsen/ok-go/blob/master/routes/posts_test.go) and [model tests](https://github.com/runemadsen/ok-go/blob/master/models/post_test.go).
+- **Testing** with [Ginkgo](http://onsi.github.io/ginkgo/) and [Gomega](http://onsi.github.io/gomega/). Golang prefers the tests to live alongside the actual files, and will automatically ignore files named `*_test.go` during compilation. This template has both simple [route tests](https://github.com/runemadsen/ok-go/blob/master/routes/posts_test.go) and [model tests](https://github.com/runemadsen/ok-go/blob/master/models/post_test.go), as well as some nice helper functions to access the HTTP responses like you know it from `RSpec`.
 
 ### Getting Started
 
