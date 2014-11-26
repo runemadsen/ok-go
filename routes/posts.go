@@ -18,7 +18,7 @@ func PostsNew(w http.ResponseWriter, req *http.Request) {
 
 func PostsCreate(w http.ResponseWriter, req *http.Request) {
 
-  // Create a new empty Post struct
+  // Create a new empty Post
   post := new(models.Post)
 
   // Parse form values
@@ -27,12 +27,15 @@ func PostsCreate(w http.ResponseWriter, req *http.Request) {
     fmt.Println("Cannot parse form")
   }
 
-  // decode form values into the struct
+  // decode form values into the post
   err2 := decoder.Decode(post, req.PostForm)
   if err2 != nil {
     fmt.Println("Cannot decode to struct")
   }
 
+  // create the post
   App.DB.Create(post)
+
+  // redirect to index page
   http.Redirect(w, req, "/posts", 302)
 }
