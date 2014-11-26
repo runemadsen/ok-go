@@ -13,11 +13,14 @@ The following features are a part of the template. You will probably end up usin
 
 - **Routing** with [Gorilla Mux](https://github.com/gorilla/mux). You can replace this with your favorite Golang routing library if needed.
 
-- Asset pipeline using [Gulp](http://gulpjs.com/). Although not specifically a Golang setup, it generates digested assets and a `manifest.json`, and an `asset_path` Go function is available in the templates.
+- **Database ORM** support with [Gorm](https://github.com/jinzhu/gorm). The template ships with a [simple Go struct](https://github.com/runemadsen/ok-go/blob/master/models/post.go) and some [basic CRUD routes](https://github.com/runemadsen/ok-go/blob/master/routes/posts.go).
 
-- Database ORM support with [Gorm](https://github.com/jinzhu/gorm)
-- Database migrations using [Gomigrate](https://github.com/DavidHuie/gomigrate) and [Gofer](https://github.com/chuckpreslar/gofer)
+- **Database migrations** with [Gomigrate](https://github.com/DavidHuie/gomigrate) and [Gofer](https://github.com/chuckpreslar/gofer) for easy command line syntax.
+
 - Layout/View rendering with [Render](https://github.com/unrolled/render)
+
+- **Asset pipeline** with [Gulp](http://gulpjs.com/). Although not specifically a Golang setup, it generates digested `.coffee` and `.scss`  assets, as well as a `manifest.json` with the file paths. A Golang [`asset_path`](https://github.com/runemadsen/ok-go/blob/master/templates/layouts/layout.html#L4-L5) helper is available in the templates. Digested assets are disabled in development mode for ease of development.
+
 - Configuration is stored in the OS environment, with support for dev (`.env`) and test (`.env.test`) environments with [Godotenv](https://github.com/joho/godotenv)
 - Testing with [Ginkgo](http://onsi.github.io/ginkgo/) and [Gomega](http://onsi.github.io/gomega/)
 
@@ -37,7 +40,7 @@ That's it.
 
 ### Development
 
-To run the development server, run `gin main.go` and open `localhost:3000` in your browser. Gin will recompile the app on any changes to `.go` files, but does currently not support watching `.html` template files.
+To run the development server, run `gulp server` and open `localhost:3000` in your browser. Gin will recompile the app code on any changes to `.go` files, but does currently not support watching `.html` template files. Gulp will recompile the assets on any changes.
 
 ### Test
 
@@ -48,8 +51,10 @@ Run `ginkgo -r` from the root folder to run the tests.
 This template is built to *just work* on Heroku. Right now, it requires you to commit the golang dependencies and precompiled assets to the Git repo.
 
 1. `heroku create -b https://github.com/kr/heroku-buildpack-go.git`
+2. Add a database to your new heroku server.
 2. `heroku config:set GO_ENV=production`
 3. `godep save`
 4. `gulp assets:precompile`
 5. `git add .; git commit -m 'adding compiled assets and dependencies'`
 6. `git push heroku master`
+7. `heroku run gofer db:migrate`

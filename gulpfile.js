@@ -54,7 +54,3 @@ gulp.task("assets:precompile", function() {
     .pipe(rev.manifest({path: 'manifest.json'}))
     .pipe(gulp.dest("public/assets")) // manifest.json
 });
-
-gulp.task("deploy:prepare", ["assets:precompile"], function() {
-  gulp.src('').pipe(shell('godep save'));
-});
