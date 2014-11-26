@@ -9,10 +9,12 @@ A Golang web application template with most of the stuff you've come to enjoy fr
 
 The following features are a part of the template. You will probably end up using only a selected handful of them for your specific projects.
 
-- **Middleware** support with [Negroni](https://github.com/codegangsta/negroni). The template has [a single middleware handler](https://github.com/runemadsen/ok-go/blob/master/config/assets.go#L14-L47) to serve as inspiration.
-- **Routing** with [Gorilla Mux](https://github.com/gorilla/mux). You should easily be able to replace this with your favority Golang routing library.
+- **Middleware** support with [Negroni](https://github.com/codegangsta/negroni). The template has [a single custom middleware handler](https://github.com/runemadsen/ok-go/blob/master/config/assets.go#L14-L47) to serve as inspiration, but [more can be added](https://github.com/runemadsen/ok-go/blob/master/config/app.go#L34-L38) easily if needed.
 
-- Asset pipeline using [Gulp](http://gulpjs.com/). Generates digested asset paths, `manifest.json`, and ships Golang `asset_path` helpers.
+- **Routing** with [Gorilla Mux](https://github.com/gorilla/mux). You can replace this with your favorite Golang routing library if needed.
+
+- Asset pipeline using [Gulp](http://gulpjs.com/). Although not specifically a Golang setup, it generates digested assets and a `manifest.json`, and an `asset_path` Go function is available in the templates.
+
 - Database ORM support with [Gorm](https://github.com/jinzhu/gorm)
 - Database migrations using [Gomigrate](https://github.com/DavidHuie/gomigrate) and [Gofer](https://github.com/chuckpreslar/gofer)
 - Layout/View rendering with [Render](https://github.com/unrolled/render)
