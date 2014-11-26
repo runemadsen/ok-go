@@ -16,7 +16,3 @@ func NewDB() *gorm.DB {
   runMigrations(&db)
   return &db
 }
-
-func runMigrations(db *gorm.DB) {
-  db.CreateTable(&models.Post{})
-}

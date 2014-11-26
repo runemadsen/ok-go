@@ -39,9 +39,6 @@ Keep in mind
 TODO
 ----
 
-- [ ] Use `pat` instead of `gorilla.mux`
-- [ ] Style the posts
 - [ ] Write route spec for posts route
 - [ ] Write model spec for post
-- [ ] Set /assets max-age to loooong time. http://play.golang.org/p/fpETA9_1oo
-- [ ] Assets n'stuff when deploying?
+- [ ] Style the posts

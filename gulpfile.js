@@ -58,12 +58,3 @@ gulp.task("assets:precompile", function() {
 gulp.task("deploy:prepare", ["assets:precompile"], function() {
   gulp.src('').pipe(shell('godep save'));
 });
-
-// Database
-// ----------------------------------------------------------- 
-
-//gulp.task("db:create", function() {
-//  //process.env.NODE_ENV = "test" // will make it look for .env.test
-//  dotenv.load();
-//  gulp.src('').pipe(shell('createdb ' + process.env.DATABASE_URL));
-//});

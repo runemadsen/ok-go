@@ -1,4 +1,4 @@
-package routes_test
+package routes
 
 import (
   "github.com/runemadsen/ok-go/config"
