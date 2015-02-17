@@ -10,8 +10,8 @@ var shell = require('gulp-shell');
 var dotenv = require('dotenv');
 
 var assets = [
-  'app/assets/javascripts/application.coffee', 
-  'app/assets/stylesheets/application.scss'
+  'assets/javascripts/application.coffee', 
+  'assets/stylesheets/application.scss'
 ]
 
 // Development
