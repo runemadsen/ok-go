@@ -1,7 +1,7 @@
 package config
 
 import (
-  "github.com/codegangsta/negroni"
+  "github.com/urfave/negroni"
   "github.com/gorilla/mux"
   "github.com/unrolled/render"
   "github.com/jinzhu/gorm"
