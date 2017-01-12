@@ -18,5 +18,5 @@ func NewDB() *gorm.DB {
   if err != nil {
     fmt.Printf("DB connection error: %v\n", err)
   }
-  return &db
+  return db
 }
